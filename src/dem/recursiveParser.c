@@ -23,31 +23,42 @@ void parseJson(struct json_object *jobj){
     enum json_type type;
     struct json_object *jobj2;
     json_object_object_foreach(jobj, key, val){
+        struct json_object *value;
         type = json_object_get_type(val);
         switch(type){
             case json_type_object:
-                printf("json_type_object\n");
+                printf("json_type_object\n\n");
                 json_object_object_get_ex(jobj, key, &jobj2);
                 parseJson(jobj2);
                 break;
             case json_type_null:
                 printf("json_type_null\n");
                 break;
+            //TODO diplay bool vals
             case json_type_boolean:
-                printf("json_type_boolean\n");
+                printf("json_type_boolean\n\n");
                 break;
             case json_type_double: 
                 printf("json_type_double\n");
+                printf("key: %s\n" , key);
+                json_object_object_get_ex(jobj,key, &value);
+                printf("value : %lf\n\n", json_object_get_double(value));
                 break;
             case json_type_int:
                 printf("json_type_int\n");
+                printf("key: %s\n" , key);
+                json_object_object_get_ex(jobj,key, &value);
+                printf("value : %d\n\n", json_object_get_int(value));
                 break;
-            //fix arrays
+            //TODO implement arrays
             case json_type_array: 
-                printf("json_type_array\n");
+                printf("json_type_array\n\n");
                 break;
             case json_type_string: 
                 printf("json_type_string\n");
+                printf("key: %s\n" , key);
+                json_object_object_get_ex(jobj,key, &value);
+                printf("value : %s\n\n", json_object_get_string(value));
                 break;
         }
     }
