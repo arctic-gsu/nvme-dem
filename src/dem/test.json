@@ -1,0 +1,9 @@
+{
+    "name" : "Miles",
+    "age" : 21,
+    "freinds" : ["Wiley", "Patrick", "Connor"],
+    "newObject" : {
+        "name2" : "wiley",
+        "cool?" : false
+    }
+}
