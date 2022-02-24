@@ -34,7 +34,7 @@ void parseJson(struct json_object *jobj){
                     parseJson(jobj2);
                     break;
                 case json_type_null:
-                    printf("json_type_null\n");
+                    printf("json_type_null\n\n");
                     break;
                 //TODO diplay bool vals
                 case json_type_boolean:
@@ -78,8 +78,25 @@ void parseJson(struct json_object *jobj){
     else{
         switch(type){
             case json_type_string:
-            printf("json_type_string(arr)\n\n");
-            printf("value of array index: %s\n", json_object_get_string(jobj));
+                printf("json_type_string\n");
+                printf("value: %s\n\n", json_object_get_string(jobj));
+                break;
+            case json_type_int:
+                printf("json_type_int\n");
+                printf("value: %d\n\n", json_object_get_int(jobj));
+                break;
+            case json_type_null:
+                printf("json_type_null\n\n");
+                break;
+            case json_type_boolean:
+                printf("json_type_boolean\n\n");
+                break;
+            case json_type_double:
+                printf("json_type_boolean\n");
+                printf("value: %lf\n\n", json_object_get_double(jobj));
+                break;
+
+
         }
     }
 }
