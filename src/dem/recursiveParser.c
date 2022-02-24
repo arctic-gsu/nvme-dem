@@ -4,7 +4,7 @@ struct json_object * readFile(char filePath[]);
 void parseJson(struct json_object *jobj);
 
 int main(int argc, char **argv){
-    char path[] = "test2.json";
+    char path[] = "test.json";
     parseJson(readFile(path));
 }
 
