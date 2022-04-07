@@ -10,7 +10,7 @@ void tabControl(int num_layers);
 
 int main(int argc, char **argv)
 {
-    char path[] = "test4.json";
+    char path[] = "test.json";
     char *buffer;
     buffer = (char *)malloc(1 * sizeof(char));
     printf("%s", parseJson(readFile(path), 0, 0, buffer, 1, "lastName", json_object_new_string("Phillips"), "put", 0));
@@ -244,7 +244,12 @@ char *parseJson(struct json_object *jobj, int num_layers, bool arrayElement, cha
                 int numInt = json_object_get_int(value);
                 sprintf(int_str, "%d", numInt);
                 size_of_buffer += (strlen(key) + 10 + strlen(int_str));
+                printf("%s", buffer);
                 buffer = realloc(buffer, size_of_buffer * sizeof(char));
+                if (buffer == NULL)
+                {
+                    printf("NULL BUFFER");
+                }
                 strcat(buffer, "\t\"");
                 strcat(buffer, key);
                 strcat(buffer, "\" : ");
